@@ -3,7 +3,6 @@
 set -ex
 
 PRIMARY_REF="${PRIM_REF/refs\//refs\/remotes\/}"
-SECONDARY_REF="${SEC_REF/refs\//refs\/remotes\/}"
 
 /bin/echo -e '::group::\x1b[32mCloning primary repository...\x1b[0m'
 git clone --progress --no-checkout --filter=tree:0 "${PRIM_SERVER_URL}/${PRIM_REPOSITORY}" "$PWD"
@@ -28,5 +27,5 @@ git remote add -f secondary "${SEC_SERVER_URL}/${SEC_REPOSITORY}"
 echo "::endgroup::"
 
 /bin/echo -e '::group::\x1b[32mMerging secondary repository...\x1b[0m'
-git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change "secondary/${SECONDARY_REF}"
+git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change "secondary/${SEC_REF}"
 echo "::endgroup::"
