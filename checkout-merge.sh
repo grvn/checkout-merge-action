@@ -12,7 +12,7 @@ git config --global --add safe.directory "$PWD"
 echo "::endgroup::"
 
 /bin/echo -e '::group::\x1b[32mFetching primary repository refs...\x1b[0m'
-git fetch --prune --progress --filter=tree:0 origin \
+git fetch --prune --progress --filter=tree:0 --update-head-ok origin \
     +refs/heads/*:refs/remotes/origin/* \
     +${PRIM_REF}:"${PRIMARY_REF}"
 echo "::endgroup::"
