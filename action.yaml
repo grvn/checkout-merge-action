@@ -18,7 +18,7 @@ inputs:
     description: 'GitHub server url'
     required: false
   secondary_ref:
-    default: ${{ github.ref }}
+    default: ${{ github.ref_name }}
     description: 'Ref to checkout (SHA, branch, tag)'
     required: false
   secondary_repository:
