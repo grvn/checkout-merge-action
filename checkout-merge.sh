@@ -28,5 +28,5 @@ git remote add -f secondary "${SEC_SERVER_URL}/${SEC_REPOSITORY}"
 echo "::endgroup::"
 
 /bin/echo -e '::group::\x1b[32mMerging secondary repository...\x1b[0m'
-git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change "secondary/${PRIMARY_REF}"
+git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change "secondary/${SECONDARY_REF}"
 echo "::endgroup::"
